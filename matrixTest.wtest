@@ -1,9 +1,18 @@
-
+import matrix.*
 
 describe "group of tests " {
-
-  test "test 01" {
-    assert.equals(100, 50+50)
+  //Prueba 1
+  test "La nave se choca" {
+    const pasajeros = [neo, morfeo, trinity]
+    pasajeros.forEach{pasajero => pasajero.saltar()}
+    pasajeros.clear()
+    assert.equals(0, pasajeros.size())
   }
 
+  //Prueba 2
+  test "Cuando la nave acelera, todos sus pasajeros, excepto el elegido, saltan de alegría y permanecen en la nave."{
+    const pasajeros = [neo, morfeo, trinity]
+    pasajeros.forEach{pasajero => pasajero.saltar()}
+    assert.that(pasajeros.contains(trinity) and pasajeros.contains(morfeo))
+  }
 }
