@@ -39,11 +39,21 @@ object trinity {
 object nave {
     const pasajeros = [neo, morfeo, trinity]
 
+    //Metodos de la nave con las colecciones
     method cantPasajeros() = pasajeros.size()
 
     method pasajeroConMayorVitalidad() = pasajeros.max{pasajero => pasajero.vitalidadActual()}
 
-    method estaEquilibradaLaNave() = pasajeros.all{pasajero => pasajero.vitalidadActual() < pasajero.vitalidadActual() * 2 }
+    method estaEquilibradaLaNave() = pasajeros.all{pasajero => pasajero.vitalidadActual() <= pasajero.vitalidadActual() * 2 }
 
     method elElegidoEstaEnLaNave() = pasajeros.contains(neo)
+
+    method chocar() {
+        pasajeros.forEach{pasajero => pasajero.saltar()}
+        pasajeros.clear()
+    }
+
+    method acelerar() {
+        pasajeros.forEach{pasajero => if(pasajero.vitalidadActual() != self.pasajeroConMayorVitalidad()) {pasajero.saltar()}}
+    }
 }

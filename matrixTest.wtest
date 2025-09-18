@@ -1,18 +1,15 @@
 import matrix.*
 
-describe "group of tests " {
+describe "Pruebas con la nave" {
   //Prueba 1
   test "La nave se choca" {
-    const pasajeros = [neo, morfeo, trinity]
-    pasajeros.forEach{pasajero => pasajero.saltar()}
-    pasajeros.clear()
-    assert.equals(0, pasajeros.size())
+    nave.chocar()
+    assert.equals(0, nave.cantPasajeros())
   }
 
   //Prueba 2
   test "Cuando la nave acelera, todos sus pasajeros, excepto el elegido, saltan de alegría y permanecen en la nave."{
-    const pasajeros = [neo, morfeo, trinity]
-    pasajeros.forEach{pasajero => pasajero.saltar()}
-    assert.that(pasajeros.contains(trinity) and pasajeros.contains(morfeo))
+    nave.acelerar()
+    assert.equals(3, nave.cantPasajeros())
   }
 }
